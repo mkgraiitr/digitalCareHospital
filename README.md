@@ -5,7 +5,8 @@ a list of drugs they take.
 
 **How to run:**
 1) It is a simple command line application, which can be run from the main method of DigitalCareHospitalApplication.
-2) You can run with the following command as well
+2) You can run with the following command as well:
+
   java -cp digitalCareHospital.jar com.evooq.digitalCareHospital.DigitalCareHospitalApplication
 
 
@@ -18,7 +19,7 @@ Libraries - Jupiter API for Junit (version 5.5.2)
 
 **Assumptions:**
 
-1) One patient will be treated by one drug - given in the order by user. Patients and Drugs will be separated by commas, 
+1) One patient will be treated by one drug - given in the order by user. All patients(or Drugs) will be separated by commas, 
 and the list of Patients and the list of Drugs will be separated by space.
 2) If multiple drugs are given without comma, they all will be given to one patient.
 2) If patients are more than drugs, remaining patients in the user input will remain untreated
