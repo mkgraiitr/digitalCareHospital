@@ -8,6 +8,25 @@ import java.util.List;
 
 public class HospitalTestUtil {
 
+    public static List<Patient> getAllPatients(){
+        List< Patient > patients = new ArrayList<>();
+        patients.add(Patient.builder().healthState("Fever").build());
+        patients.add(Patient.builder().healthState("Healthy").build());
+        patients.add(Patient.builder().healthState("Diabetes").build());
+        patients.add(Patient.builder().healthState("Tuberculosis").build());
+        patients.add(Patient.builder().healthState("Dead").build());
+        return patients;
+    }
+    public static List<String> getAllDrugs(){
+        List<String> drugs = new ArrayList<>();
+        drugs.add("Paracetamol");
+        drugs.add("Paracetamol");
+        drugs.add("Insulin");
+        drugs.add("Antibiotic");
+        drugs.add("Paracetamol");
+        return drugs;
+    }
+
     public static List<Patient> getPatientList(){
         List< Patient > patients = new ArrayList<>();
         patients.add(Patient.builder().healthState("Fever").build());

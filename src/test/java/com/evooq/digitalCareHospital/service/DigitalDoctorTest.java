@@ -24,7 +24,7 @@ class DigitalDoctorTest {
     }
 
     @Test
-    void getPrescription_allParacetamol_patients_have_diabetes() {
+    void getPrescription_all_patients_have_diabetes() {
         digitalDoctor.setTreatmentStrategy(immatureStrategy);
         List<PrescriptionDetails> prescriptionDetails = digitalDoctor.
                 getPrescription(HospitalTestUtil.getPatientListWithDiabetes(), HospitalTestUtil.getInsulin());
