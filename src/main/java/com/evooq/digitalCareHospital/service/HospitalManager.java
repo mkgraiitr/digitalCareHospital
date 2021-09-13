@@ -23,10 +23,8 @@ public class HospitalManager {
     }
 
     public Hospital buildHospitalDetails(String userInput) {
-        System.out.println("getPrescriptionDetails:: " + userInput);
         Hospital hospital = Hospital.builder().build();
         String[] argumentArray = userInput.split(" ");
-        System.out.println(argumentArray.length);
         if (argumentArray.length > 0) {
             String[] stateInput = argumentArray[0].split(",");
             List<Patient> patients = new ArrayList<>();
@@ -37,14 +35,12 @@ public class HospitalManager {
                 patient.setHealthState(healthState);
                 patients.add(patient);
             }
-            System.out.println(patients.size());
             hospital.setPatients(patients);
 
             List<Drug> drugs = new ArrayList<>();
             List<String> prescribedDrug = new ArrayList<>();
             if (argumentArray.length > 1 && argumentArray[1] != null && argumentArray[1].length() > 0) {
                 String[] drugInput = argumentArray[1].split(",");
-                System.out.println("drugInput" + drugInput);
                 for (String drug : drugInput) {
                     String drugName = Drugs.getDrugNameBySymbol(drug);
                     prescribedDrug.add(drugName);
