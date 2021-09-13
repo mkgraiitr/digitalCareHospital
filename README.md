@@ -16,14 +16,14 @@ Libraries - Jupiter API for Junit (version 5.5.2)
 **Assumptions:**
 
 1) One patient will be treated by one drug - given in the order by user
-2) If patient is more than drugs, last patients in the user input will remain untreated
+2) If patients are more than drugs, remaining patients in the user input will remain untreated
 3) If drugs are more than patients, the remaining drugs will be unused.
 
 
 
 **Design considerations:**
 The following components are made extendable and loosely coupled with other components
-1) Starting with CommandHandler, the class implements Handler interface. This can be replaced by other class that takes inputs 
+1) Starting with CommandHandler, the class implements Handler interface. This can be replaced by any other class that takes inputs 
    from UI or any other API. 
 2) Hospital Manager takes care of Hospital object creation that has all the required details on Hospital. 
    Later, details such as ward, payment information can be added here.
@@ -32,5 +32,6 @@ The following components are made extendable and loosely coupled with other comp
    can be built by implementing TreatmentStrategy interface. 
 5) DigitalDoctor has a strategy field. This strategy can be changed for different doctors (experienced, immature).
 6) The new strategies could also be focused on saving maximum patients (treating sever patients first), or any other strategy for that matter
+7) Strategy can also be determined by AI/ML engines for treatment
 
 
