@@ -70,4 +70,20 @@ public class HospitalManagerTest {
         assertEquals(1, patientEndStates.get("H"));
     }
 
+    @Test
+    void integrationTest_onePatient_wrongDose() {
+        Hospital hospital = hospitalHelper.buildHospitalDetails("H AsP");
+        List<PrescriptionDetails> prescriptions = hospitalManager.getPrescription(hospital.getPatients(), hospital.getDrugList());
+        Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
+        assertEquals(1, patientEndStates.get("X"));
+    }
+
+    @Test
+    void integrationTest_onePatient_wrongDose_Fever() {
+        Hospital hospital = hospitalHelper.buildHospitalDetails("H IAn");
+        List<PrescriptionDetails> prescriptions = hospitalManager.getPrescription(hospital.getPatients(), hospital.getDrugList());
+        Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
+        assertEquals(1, patientEndStates.get("F"));
+    }
+
 }

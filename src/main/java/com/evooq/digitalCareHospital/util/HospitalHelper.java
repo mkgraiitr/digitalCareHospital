@@ -33,9 +33,22 @@ public class HospitalHelper {
             if (areDrugsAvailable(userInputs)) {
                 String[] drugInput = userInputs[1].split(",");
                 for (String drug : drugInput) {
-                    String drugName = Drugs.getDrugNameBySymbol(drug);
-                    prescribedDrug.add(drugName);
-                    drugs.add(Drug.builder().name(drugName).build());
+                    System.out.println("drug" + drug);
+                    String[] multipleDrug = drug.split("(?=P|As|An|I)");
+                    if(multipleDrug.length>1){
+                        StringBuilder mixedDrugName = new StringBuilder();
+
+                        for(String mixedDrug: multipleDrug){
+                            System.out.println("mixedDrug" + mixedDrug);
+                            mixedDrugName.append(Drugs.getDrugNameBySymbol(mixedDrug));
+                        }
+                        prescribedDrug.add(mixedDrugName.toString());
+                        drugs.add(Drug.builder().name(mixedDrugName.toString()).build());
+                    } else {
+                        String drugName = Drugs.getDrugNameBySymbol(drug);
+                        prescribedDrug.add(drugName);
+                        drugs.add(Drug.builder().name(drugName).build());
+                    }
                 }
             }
 

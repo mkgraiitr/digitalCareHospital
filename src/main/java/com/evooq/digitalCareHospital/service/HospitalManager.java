@@ -11,6 +11,7 @@ import java.util.List;
 import static com.evooq.digitalCareHospital.util.CommandUtility.printEndResult;
 
 public class HospitalManager {
+
     public void simulateHospital(String userInput) {
         HospitalHelper hospitalHelper = new HospitalHelper();
         Hospital hospital = hospitalHelper.buildHospitalDetails(userInput);
@@ -23,5 +24,4 @@ public class HospitalManager {
         TreatmentImplementation treatmentImplementation = new TreatmentImplementation();
         return treatmentImplementation.getPrescription(patients, drugs);
     }
-
 }

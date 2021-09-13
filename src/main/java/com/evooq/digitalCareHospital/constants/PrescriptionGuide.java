@@ -21,13 +21,19 @@ public class PrescriptionGuide {
                     .put(new PrescriptionDetails(Arrays.asList(Drugs.INSULIN.getDrugName()), Patient.builder().healthState(HealthState.DIABETES.getState()).build()),
                             DrugEffects.builder()
                                     .endState(HealthState.DIABETES.getState()).build())
-                    .put(new PrescriptionDetails(Arrays.asList(Drugs.INSULIN.getDrugName(), Drugs.ANTIBIOTIC.getSymbol()), Patient.builder().healthState(HealthState.HEALTHY.getState()).build()),
+                    .put(new PrescriptionDetails(Arrays.asList(Drugs.INSULIN.getDrugName(), Drugs.ANTIBIOTIC.getDrugName()), Patient.builder().healthState(HealthState.HEALTHY.getState()).build()),
+                            DrugEffects.builder()
+                                    .endState(HealthState.FEVER.getState()).build())
+                    .put(new PrescriptionDetails(Arrays.asList(Drugs.ANTIBIOTIC.getDrugName(), Drugs.INSULIN.getDrugName()), Patient.builder().healthState(HealthState.HEALTHY.getState()).build()),
                             DrugEffects.builder()
                                     .endState(HealthState.FEVER.getState()).build())
                     .put(new PrescriptionDetails(Arrays.asList(Drugs.PARACETAMOL.getDrugName()), Patient.builder().healthState(HealthState.FEVER.getState()).build()),
                             DrugEffects.builder()
                                     .endState(HealthState.HEALTHY.getState()).build())
-                    .put(new PrescriptionDetails(Arrays.asList(Drugs.PARACETAMOL.getDrugName(), Drugs.ASPIRIN.getSymbol()), Patient.builder().healthState(HealthState.HEALTHY.getState()).build()),
+                    .put(new PrescriptionDetails(Arrays.asList(Drugs.PARACETAMOL.getDrugName(), Drugs.ASPIRIN.getDrugName()), Patient.builder().healthState(HealthState.HEALTHY.getState()).build()),
+                            DrugEffects.builder()
+                                    .endState(HealthState.DEAD.getState()).build())
+                    .put(new PrescriptionDetails(Arrays.asList(Drugs.ASPIRIN.getDrugName(), Drugs.PARACETAMOL.getDrugName()), Patient.builder().healthState(HealthState.HEALTHY.getState()).build()),
                             DrugEffects.builder()
                                     .endState(HealthState.DEAD.getState()).build())
                     .put(new PrescriptionDetails(Arrays.asList(""), Patient.builder().healthState(HealthState.DIABETES.getState()).build()),
