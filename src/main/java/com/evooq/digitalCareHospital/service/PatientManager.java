@@ -2,7 +2,6 @@ package com.evooq.digitalCareHospital.service;
 
 import com.evooq.digitalCareHospital.constants.PrescriptionGuide;
 import com.evooq.digitalCareHospital.domain.DrugEffects;
-import com.evooq.digitalCareHospital.domain.Patient;
 import com.evooq.digitalCareHospital.domain.PrescriptionDetails;
 
 import java.util.List;
@@ -24,12 +23,5 @@ public class PatientManager {
             return getSymbolByState(drugEffects.getEndState());
         }).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-    }
-
-    public Patient createPatientRecord() {
-        return new Patient();
-    }
-
-    public void assignDoctor(DigitalDoctor digitalDoctor) {
     }
 }

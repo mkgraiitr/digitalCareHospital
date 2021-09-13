@@ -1,15 +1,12 @@
 package com.evooq.digitalCareHospital.handler;
 
-import com.evooq.digitalCareHospital.domain.Hospital;
 import com.evooq.digitalCareHospital.service.HospitalManager;
-import com.evooq.digitalCareHospital.service.PatientManager;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static com.evooq.digitalCareHospital.constants.CommandLineMessage.*;
 import static com.evooq.digitalCareHospital.util.CommandUtility.exitCommandLine;
-import static com.evooq.digitalCareHospital.util.CommandUtility.printEndResult;
 
 
 public class CommandHandler implements Handler {

@@ -1,13 +1,13 @@
 package com.evooq.digitalCareHospital.engine;
 
-import com.evooq.digitalCareHospital.domain.PrescriptionDetails;
 import com.evooq.digitalCareHospital.domain.Patient;
+import com.evooq.digitalCareHospital.domain.PrescriptionDetails;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ImmatureStrategy implements TreatmentStrategy {
+public class TreatmentImplementation implements TreatmentStrategy {
 
     @Override
     public List<PrescriptionDetails> getPrescription(List<Patient> patients, List<String> drugs) {

@@ -13,24 +13,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Getter
 @Setter
 public class Patient {
-    private int registrationNumber;
-    private String name;
-    private int age;
-
     private String healthState;
 
     private static AtomicInteger atomicInteger = new AtomicInteger(0);
 
     public Patient() {
-        this.registrationNumber = atomicInteger.incrementAndGet();
     }
 
     @Override
     public String toString() {
         return "Patient{" +
-                "registrationNumber=" + registrationNumber +
-                ", name='" + name + '\'' +
-                ", age=" + age +
                 ", healthState='" + healthState + '\'' +
                 '}';
     }
