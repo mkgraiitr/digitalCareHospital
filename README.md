@@ -23,8 +23,14 @@ Libraries - Jupiter API for Junit (version 5.5.2)
 
 **Design considerations:**
 The following components are made extendable and loosely coupled with other components
-1) The strategy followed in the implementation is immature strategy. A new strategy 
+1) Starting with CommandHandler, the class implements Handler interface. This can be replaced by other class that takes inputs 
+   from UI or any other API. 
+2) Hospital Manager takes care of Hospital object creation that has all the required details on Hospital. 
+   Later, details such as ward, payment information can be added here.
+3) Currently, the Hospital object is built from user's inputs on patients and drugs. User can also input Doctor details, pharmacy details etc.
+4) The strategy followed to cure patients in the implementation is immature strategy. A new strategy 
    can be built by implementing TreatmentStrategy interface. 
-2) The new strategies could be focused on saving maximum patients (treating sever patients first), or any other strategy for that matter
-3) Hospital object is built from user's input. User can also input Doctor details, pharmacy details etc
+5) DigitalDoctor has a strategy field. This strategy can be changed for different doctors (experienced, immature).
+6) The new strategies could also be focused on saving maximum patients (treating sever patients first), or any other strategy for that matter
+
 
