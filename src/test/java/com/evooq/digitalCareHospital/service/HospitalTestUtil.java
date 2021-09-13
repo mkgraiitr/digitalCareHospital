@@ -23,4 +23,34 @@ public class HospitalTestUtil {
         return drugs;
     }
 
+    public static List<Patient> getPatientListWithDiabetes(){
+        List< Patient > patients = new ArrayList<>();
+        patients.add(Patient.builder().healthState("Diabetes").build());
+        patients.add(Patient.builder().healthState("Diabetes").build());
+        patients.add(Patient.builder().healthState("Diabetes").build());
+        return patients;
+    }
+    public static List<String> getInsulin(){
+        List<String> drugs = new ArrayList<>();
+        drugs.add("Insulin");
+        drugs.add("Insulin");
+        drugs.add("Insulin");
+        return drugs;
+    }
+
+    public static List<Patient> getPatientListWithMixedDiseases(){
+        List< Patient > patients = new ArrayList<>();
+        patients.add(Patient.builder().healthState("Diabetes").build());
+        patients.add(Patient.builder().healthState("Fever").build());
+        patients.add(Patient.builder().healthState("Tuberculosis").build());
+        return patients;
+    }
+    public static List<String> getMixedDoses(){
+        List<String> drugs = new ArrayList<>();
+        drugs.add("Insulin");
+        drugs.add("Aspirin");
+        drugs.add("Antibiotic");
+        return drugs;
+    }
+
 }

@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class HospitalManagerTest {
     HospitalManager hospitalManager = new HospitalManager();
@@ -44,5 +43,35 @@ public class HospitalManagerTest {
         assertNotEquals(1, patientEndStates.get("D"));
     }
 
+    @Test
+    void integrationTest_onePatient_manuDrugs() {
+        Hospital hospital = hospitalManager.buildHospitalDetails("F P,P,As,I,An");
+        List<PrescriptionDetails> prescriptions = hospital.getDoctors().get(0).getPrescription(hospital.getPatients(), hospital.getDrugList());
+        Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
+        System.out.println(patientEndStates);
+        assertEquals(1, patientEndStates.get("H"));
+        assertNull(patientEndStates.get("F"));
+        assertNull(patientEndStates.get("D"));
+    }
+
+    @Test
+    void integrationTest_healthyPatients_noDrugs() {
+        Hospital hospital = hospitalManager.buildHospitalDetails("H,H");
+        List<PrescriptionDetails> prescriptions = hospital.getDoctors().get(0).getPrescription(hospital.getPatients(), hospital.getDrugList());
+        Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
+        System.out.println(patientEndStates);
+        assertEquals(2, patientEndStates.get("H"));
+        assertNull(patientEndStates.get("F"));
+        assertNull(patientEndStates.get("D"));
+    }
+
+    @Test
+    void integrationTest_cureFever() {
+        Hospital hospital = hospitalManager.buildHospitalDetails("F P");
+        List<PrescriptionDetails> prescriptions = hospital.getDoctors().get(0).getPrescription(hospital.getPatients(), hospital.getDrugList());
+        Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
+        System.out.println(patientEndStates);
+        assertEquals(1, patientEndStates.get("H"));
+    }
 
 }
