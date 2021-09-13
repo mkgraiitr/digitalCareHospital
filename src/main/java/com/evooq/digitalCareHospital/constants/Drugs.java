@@ -6,8 +6,7 @@ public enum Drugs {
     ASPIRIN("As", "Aspirin"),
     ANTIBIOTIC("An", "Antibiotic"),
     INSULIN("I", "Insulin"),
-    PARACETAMOL("P", "Paracetamol"),
-    SPAGHETTI_MONSTER("NP", "NOODLY POWER");
+    PARACETAMOL("P", "Paracetamol");
 
     private final String symbol;
     private final String drugName;

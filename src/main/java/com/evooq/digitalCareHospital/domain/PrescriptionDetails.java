@@ -1,6 +1,5 @@
-package com.evooq.digitalCareHospital.constants;
+package com.evooq.digitalCareHospital.domain;
 
-import com.evooq.digitalCareHospital.domain.Patient;
 import com.google.common.base.Objects;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

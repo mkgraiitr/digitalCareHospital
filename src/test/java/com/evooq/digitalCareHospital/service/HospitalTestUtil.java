@@ -1,6 +1,7 @@
 package com.evooq.digitalCareHospital.service;
 
 import com.evooq.digitalCareHospital.domain.Patient;
+import com.evooq.digitalCareHospital.domain.PrescriptionDetails;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,4 +22,5 @@ public class HospitalTestUtil {
         drugs.add("Paracetamol");
         return drugs;
     }
+
 }

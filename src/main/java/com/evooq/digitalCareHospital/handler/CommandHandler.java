@@ -3,14 +3,13 @@ package com.evooq.digitalCareHospital.handler;
 import com.evooq.digitalCareHospital.domain.Hospital;
 import com.evooq.digitalCareHospital.service.HospitalManager;
 import com.evooq.digitalCareHospital.service.PatientManager;
-import com.evooq.digitalCareHospital.util.CommandUtility;
 
 import java.util.InputMismatchException;
-import java.util.Map;
 import java.util.Scanner;
 
 import static com.evooq.digitalCareHospital.constants.CommandLineMessage.*;
 import static com.evooq.digitalCareHospital.util.CommandUtility.exitCommandLine;
+import static com.evooq.digitalCareHospital.util.CommandUtility.printEndResult;
 
 
 public class CommandHandler implements Handler {
@@ -27,7 +26,8 @@ public class CommandHandler implements Handler {
                     isCommandLineActive = false;
                     exitCommandLine(scanner);
                 }
-                handleUserInput(userInput);
+                HospitalManager hospitalManager = new HospitalManager();
+                hospitalManager.simulateHospital(userInput);
 
             } catch (InputMismatchException e) {
                 System.out.println(INVALID_INPUT.getValue());
@@ -37,12 +37,5 @@ public class CommandHandler implements Handler {
                 scanner.nextLine();
             }
         }
-    }
-
-    private void handleUserInput(String userInput) {
-        HospitalManager hospitalManager = new HospitalManager();
-        Hospital hospital = hospitalManager.buildHospitalDetails(userInput);
-        PatientManager patientManager = new PatientManager();
-        CommandUtility.printEndResult(patientManager.getPatientEndState(hospital.getPatients(), hospital.getDrugList()));
     }
 }
