@@ -31,7 +31,7 @@ public class PatientManager {
         return new Patient();
     }
 
-    public void assignDoctor(Disease disease) {
+    public void assignDoctor(DigitalDoctor digitalDoctor) {
     }
 
 
