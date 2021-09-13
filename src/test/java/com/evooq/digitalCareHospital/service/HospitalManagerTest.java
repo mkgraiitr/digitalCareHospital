@@ -71,8 +71,16 @@ public class HospitalManagerTest {
     }
 
     @Test
-    void integrationTest_onePatient_wrongDose() {
+    void integrationTest_onePatient_wrongDose_death() {
         Hospital hospital = hospitalHelper.buildHospitalDetails("H AsP");
+        List<PrescriptionDetails> prescriptions = hospitalManager.getPrescription(hospital.getPatients(), hospital.getDrugList());
+        Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
+        assertEquals(1, patientEndStates.get("X"));
+    }
+
+    @Test
+    void integrationTest_onePatient_wrongDose_death_2() {
+        Hospital hospital = hospitalHelper.buildHospitalDetails("H PAs");
         List<PrescriptionDetails> prescriptions = hospitalManager.getPrescription(hospital.getPatients(), hospital.getDrugList());
         Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
         assertEquals(1, patientEndStates.get("X"));
@@ -81,6 +89,14 @@ public class HospitalManagerTest {
     @Test
     void integrationTest_onePatient_wrongDose_Fever() {
         Hospital hospital = hospitalHelper.buildHospitalDetails("H IAn");
+        List<PrescriptionDetails> prescriptions = hospitalManager.getPrescription(hospital.getPatients(), hospital.getDrugList());
+        Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
+        assertEquals(1, patientEndStates.get("F"));
+    }
+
+    @Test
+    void integrationTest_onePatient_wrongDose_Fever_2() {
+        Hospital hospital = hospitalHelper.buildHospitalDetails("H AnI");
         List<PrescriptionDetails> prescriptions = hospitalManager.getPrescription(hospital.getPatients(), hospital.getDrugList());
         Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
         assertEquals(1, patientEndStates.get("F"));
