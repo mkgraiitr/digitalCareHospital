@@ -18,7 +18,6 @@ public class HospitalManagerTest {
         Hospital hospital = hospitalManager.buildHospitalDetails("F,F,F P,P,P");
         List<PrescriptionDetails> prescriptions = hospital.getDoctors().get(0).getPrescription(hospital.getPatients(), hospital.getDrugList());
         Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
-        System.out.println(patientEndStates);
         assertEquals(3, patientEndStates.get("H"));
     }
 
@@ -27,7 +26,6 @@ public class HospitalManagerTest {
         Hospital hospital = hospitalManager.buildHospitalDetails("D,D");
         List<PrescriptionDetails> prescriptions = hospital.getDoctors().get(0).getPrescription(hospital.getPatients(), hospital.getDrugList());
         Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
-        System.out.println(patientEndStates);
         assertEquals(2, patientEndStates.get("X"));
         assertNotEquals(2, patientEndStates.get("H"));
     }
@@ -37,7 +35,6 @@ public class HospitalManagerTest {
         Hospital hospital = hospitalManager.buildHospitalDetails("F,F,F P");
         List<PrescriptionDetails> prescriptions = hospital.getDoctors().get(0).getPrescription(hospital.getPatients(), hospital.getDrugList());
         Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
-        System.out.println(patientEndStates);
         assertEquals(1, patientEndStates.get("H"));
         assertEquals(2, patientEndStates.get("F"));
         assertNotEquals(1, patientEndStates.get("D"));
@@ -48,7 +45,6 @@ public class HospitalManagerTest {
         Hospital hospital = hospitalManager.buildHospitalDetails("F P,P,As,I,An");
         List<PrescriptionDetails> prescriptions = hospital.getDoctors().get(0).getPrescription(hospital.getPatients(), hospital.getDrugList());
         Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
-        System.out.println(patientEndStates);
         assertEquals(1, patientEndStates.get("H"));
         assertNull(patientEndStates.get("F"));
         assertNull(patientEndStates.get("D"));
@@ -59,7 +55,6 @@ public class HospitalManagerTest {
         Hospital hospital = hospitalManager.buildHospitalDetails("H,H");
         List<PrescriptionDetails> prescriptions = hospital.getDoctors().get(0).getPrescription(hospital.getPatients(), hospital.getDrugList());
         Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
-        System.out.println(patientEndStates);
         assertEquals(2, patientEndStates.get("H"));
         assertNull(patientEndStates.get("F"));
         assertNull(patientEndStates.get("D"));
@@ -70,7 +65,6 @@ public class HospitalManagerTest {
         Hospital hospital = hospitalManager.buildHospitalDetails("F P");
         List<PrescriptionDetails> prescriptions = hospital.getDoctors().get(0).getPrescription(hospital.getPatients(), hospital.getDrugList());
         Map<String, Long> patientEndStates = patientManager.getPatientEndState(prescriptions);
-        System.out.println(patientEndStates);
         assertEquals(1, patientEndStates.get("H"));
     }
 

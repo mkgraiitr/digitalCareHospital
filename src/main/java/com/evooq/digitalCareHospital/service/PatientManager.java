@@ -1,7 +1,6 @@
 package com.evooq.digitalCareHospital.service;
 
 import com.evooq.digitalCareHospital.constants.PrescriptionGuide;
-import com.evooq.digitalCareHospital.domain.Disease;
 import com.evooq.digitalCareHospital.domain.DrugEffects;
 import com.evooq.digitalCareHospital.domain.Patient;
 import com.evooq.digitalCareHospital.domain.PrescriptionDetails;
@@ -33,6 +32,4 @@ public class PatientManager {
 
     public void assignDoctor(DigitalDoctor digitalDoctor) {
     }
-
-
 }

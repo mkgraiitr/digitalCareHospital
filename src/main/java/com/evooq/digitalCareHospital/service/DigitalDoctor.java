@@ -10,7 +10,6 @@ public class DigitalDoctor {
     private TreatmentStrategy treatmentStrategy;
 
     public List<PrescriptionDetails> getPrescription(List<Patient> patients, List<String> drugs) {
-        System.out.println("Applying simple strategy");
         return treatmentStrategy.getPrescription(patients, drugs);
     }
 
